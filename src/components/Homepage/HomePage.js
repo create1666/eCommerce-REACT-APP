@@ -3,6 +3,7 @@ import SmallBanner from "./SmallBanner";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../../redux/actions/ProductAction";
 import { addItemToCart } from "../../redux/actions/CartActions";
+import Notification from 'cogo-toast'
 
 const Item = ({ item, handleAddToCart }) => {
   return (
@@ -65,8 +66,14 @@ const Homepage = () => {
   const { loading, data: productData, error } = products;
 
   const addToCart = (item) => {
-    dispatch(addItemToCart(item))
-  }
+    dispatch(addItemToCart(item));
+    Notification.success('Item has been added to cart', {
+      position: 'top-right',
+      toastContainerID: 'my-own-id'
+    })
+  };
+
+
 
   return (
     <>
@@ -134,7 +141,7 @@ const Homepage = () => {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a
+                      <a 
                         className="nav-link"
                         data-toggle="tab"
                         href="#women"

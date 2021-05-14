@@ -2,6 +2,7 @@ import Footer from "./components/general/Footer";
 import Header from "./components/general/Header";
 import Newsletter from "./components/general/Newsletter";
 import Homepage from "./components/Homepage";
+import CartPage from "./components/CartPage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -17,6 +18,9 @@ const App = () => {
           <Switch>
             <Router exact path="/">
               <Homepage />
+            </Router>
+            <Router exact path="/cart">
+              <CartPage />
             </Router>
           </Switch>
           <Newsletter />
